@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Phone, Briefcase, FileText, Instagram, Facebook,
-  Video, Smile, Package, Camera, Scissors, Sparkles,
-  Smartphone, Handshake, Mic, Lightbulb, ArrowUpRight,
+  Film, Clapperboard, Target, Code2, ArrowUpRight, MessageCircle,
 } from "lucide-react";
 import avatar from "@/assets/avatar.png";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -11,9 +10,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Leonardo Frezza — Links Oficiais" },
-      { name: "description", content: "Criador de conteúdo, parcerias e assessoria. Acesse os links oficiais de Leonardo Frezza." },
+      { name: "description", content: "Videomaker, Storymaker, Gestor de Tráfego Pago e Desenvolvedor. Para parcerias, fale com a assessoria." },
       { property: "og:title", content: "Leonardo Frezza — Links Oficiais" },
-      { property: "og:description", content: "Criador de conteúdo, parcerias e assessoria." },
+      { property: "og:description", content: "Videomaker · Storymaker · Tráfego Pago · Desenvolvimento." },
     ],
   }),
   component: Index,
@@ -28,34 +27,11 @@ const links = [
   { title: "Mídia Kit — 2026", subtitle: "Solicite pelo WhatsApp", url: wa("Olá! Gostaria de solicitar o Mídia Kit 2026."), icon: FileText },
 ];
 
-type Service = { title: string; icon: typeof Video };
-
-const serviceGroups: { label: string; items: Service[] }[] = [
-  {
-    label: "Conteúdo",
-    items: [
-      { title: "Criação de Reels", icon: Video },
-      { title: "Conteúdo de Humor", icon: Smile },
-      { title: "Stories e Bastidores", icon: Smartphone },
-      { title: "Roteiros e Ideias", icon: Lightbulb },
-    ],
-  },
-  {
-    label: "Produção",
-    items: [
-      { title: "Gravações Profissionais", icon: Camera },
-      { title: "Edição e Pós-Produção", icon: Scissors },
-    ],
-  },
-  {
-    label: "Marca",
-    items: [
-      { title: "Garoto-Propaganda", icon: Sparkles },
-      { title: "Review de Produtos", icon: Package },
-      { title: "Parcerias e Publis", icon: Handshake },
-      { title: "Presença em Eventos", icon: Mic },
-    ],
-  },
+const especialidades = [
+  { title: "Videomaker", desc: "Direção e captação de vídeo para marcas.", icon: Film },
+  { title: "Storymaker", desc: "Narrativas curtas e conteúdo para redes.", icon: Clapperboard },
+  { title: "Tráfego Pago", desc: "Gestão de campanhas em Meta Ads.", icon: Target },
+  { title: "Desenvolvimento", desc: "Sistemas e sites sob medida.", icon: Code2 },
 ];
 
 const socials = [
@@ -79,11 +55,7 @@ function Index() {
               <div className="relative inline-block">
                 <div className="avatar-ring" />
                 <div className="rounded-full p-[3px] bg-background relative z-10">
-                  <img
-                    src={avatar}
-                    alt="Leonardo Frezza"
-                    className="block w-24 h-24 rounded-full object-cover"
-                  />
+                  <img src={avatar} alt="Leonardo Frezza" className="block w-24 h-24 rounded-full object-cover" />
                 </div>
               </div>
             </a>
@@ -128,7 +100,7 @@ function Index() {
                   key={l.title}
                   href={l.url}
                   target="_blank" rel="noopener noreferrer"
-                  className="premium-card group flex items-center gap-4 px-5 py-4 animate-fade-up"
+                  className="premium-card group relative flex items-center gap-4 px-5 py-4 animate-fade-up"
                   style={{ animationDelay: `${0.55 + i * 0.08}s` }}
                 >
                   <div className="icon-tile w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -145,55 +117,63 @@ function Index() {
           </div>
         </section>
 
-        {/* SERVICES — grouped, clean */}
-        <section id="servicos" className="pt-14 pb-8">
+        {/* ESPECIALIDADES — atuação profissional, sem CTA por item */}
+        <section className="pt-16 pb-6">
           <div className="container mx-auto px-6 max-w-xl">
             <div className="text-center mb-8 animate-fade-up" style={{ animationDelay: "0.85s" }}>
-              <span className="text-[10px] text-primary/80 tracking-[0.4em] uppercase font-medium">
-                Serviços
+              <span className="text-[10px] text-primary/80 tracking-[0.45em] uppercase font-medium">
+                Atuação Profissional
               </span>
-              <h2 className="font-display text-3xl md:text-4xl mt-2 text-foreground">
-                O que eu entrego
+              <h2 className="font-display text-3xl md:text-[34px] mt-3 text-foreground leading-tight">
+                Especialidades
               </h2>
+              <div className="mx-auto mt-4 w-16 hairline" />
             </div>
 
-            <div className="premium-card p-5 md:p-6 animate-fade-up" style={{ animationDelay: "0.95s" }}>
-              <div className="space-y-6">
-                {serviceGroups.map((group) => (
-                  <div key={group.label}>
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-[10px] text-muted-foreground tracking-[0.3em] uppercase font-medium">
-                        {group.label}
-                      </span>
-                      <div className="flex-1 h-px bg-border/60" />
+            <div className="grid grid-cols-2 gap-3">
+              {especialidades.map((e, i) => {
+                const Icon = e.icon;
+                return (
+                  <div
+                    key={e.title}
+                    className="premium-card relative p-5 flex flex-col gap-3 animate-fade-up"
+                    style={{ animationDelay: `${0.95 + i * 0.06}s` }}
+                  >
+                    <span className="serial absolute top-3 right-4 text-xs tracking-wider">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="icon-tile w-10 h-10 rounded-lg flex items-center justify-center">
+                      <Icon className="w-[17px] h-[17px]" strokeWidth={1.5} />
                     </div>
-                    <ul className="divide-y divide-border/40">
-                      {group.items.map((s) => {
-                        const Icon = s.icon;
-                        return (
-                          <li key={s.title}>
-                            <a
-                              href={wa(`Quero este serviço: ${s.title}`)}
-                              target="_blank" rel="noopener noreferrer"
-                              className="group flex items-center gap-3 py-2.5 -mx-2 px-2 rounded-lg hover:bg-foreground/[0.03] transition-colors"
-                            >
-                              <Icon className="w-[15px] h-[15px] text-primary/70 group-hover:text-primary transition-colors flex-shrink-0" strokeWidth={1.5} />
-                              <span className="flex-1 text-sm text-foreground/90 group-hover:text-foreground font-light">
-                                {s.title}
-                              </span>
-                              <ArrowUpRight
-                                className="w-3.5 h-3.5 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
-                                strokeWidth={1.5}
-                              />
-                            </a>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                    <div className="relative">
+                      <h3 className="font-display text-lg leading-tight text-foreground">{e.title}</h3>
+                      <p className="text-[11.5px] text-muted-foreground font-light leading-relaxed mt-1">
+                        {e.desc}
+                      </p>
+                    </div>
                   </div>
-                ))}
-              </div>
+                );
+              })}
             </div>
+
+            {/* Única CTA — parcerias passam pela assessoria */}
+            <a
+              href={wa("Olá! Tenho interesse em uma parceria com o Leonardo Frezza.")}
+              target="_blank" rel="noopener noreferrer"
+              className="premium-card group mt-5 flex items-center gap-4 px-5 py-4 animate-fade-up"
+              style={{ animationDelay: "1.25s" }}
+            >
+              <div className="icon-tile w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
+                <MessageCircle className="w-[18px] h-[18px]" strokeWidth={1.5} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-[10px] text-primary/70 tracking-[0.3em] uppercase font-medium">Parcerias & Projetos</p>
+                <h3 className="text-[15px] font-medium text-foreground mt-0.5">
+                  Fale com a assessoria
+                </h3>
+              </div>
+              <ArrowUpRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" strokeWidth={1.5} />
+            </a>
           </div>
         </section>
 
@@ -229,12 +209,12 @@ function Index() {
 
       <footer className="relative z-10 py-8">
         <div className="container mx-auto px-6 max-w-xl text-center">
-          <p className="text-[11px] text-muted-foreground/50 tracking-wide font-light">
-            Feito por{" "}
+          <p className="text-[11px] text-muted-foreground/60 tracking-wide font-light">
+            Desenvolvido por{" "}
             <a
               href="https://www.instagram.com/frezzamarketing/"
               target="_blank" rel="noopener noreferrer"
-              className="text-primary/70 hover:text-primary transition-colors"
+              className="text-primary/80 hover:text-primary transition-colors"
             >
               Frezza Marketing
             </a>
