@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Briefcase, FileText, Instagram, Facebook,
-  Film, Clapperboard, Target, Code2, ArrowUpRight, MessageCircle,
+  Film, Clapperboard, Target, Code2, ArrowUpRight,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import TikTokIcon from "@/components/TikTokIcon";
 import avatar from "@/assets/avatar.png";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -24,7 +25,7 @@ const wa = (text: string) => `${WHATSAPP}?text=${encodeURIComponent(text)}`;
 
 const links = [
   { title: "Fale com minha assessoria", subtitle: "WhatsApp direto", url: WHATSAPP, icon: WhatsAppIcon },
-  { title: "Portfólio", subtitle: "Apresentações e cases", url: "https://www.canva.com/design/DAG4jW9haFo/rT5bnXd7Q-AQ7RS9XpG2AQ/view", icon: Briefcase },
+  { title: "Portfólio", subtitle: "Solicite pelo WhatsApp", url: wa("Olá, gostaria de solicitar o portfolio de Leonardo Frezza."), icon: Briefcase },
   { title: "Mídia Kit — 2026", subtitle: "Solicite pelo WhatsApp", url: wa("Olá! Gostaria de solicitar o Mídia Kit 2026."), icon: FileText },
 ];
 
@@ -75,7 +76,20 @@ function Index() {
               Criador de Conteúdo · Gym · Lifestyle · Humor
             </p>
 
-            <div className="mx-auto mt-7 mb-2 w-20 hairline animate-fade-up" style={{ animationDelay: "0.3s" }} />
+            <a
+              href="https://www.tiktok.com/@l.frezza"
+              target="_blank" rel="noopener noreferrer"
+              className="group mt-5 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-primary/25 bg-primary/5 hover:bg-primary/10 hover:border-primary/45 transition-all animate-fade-up"
+              style={{ animationDelay: "0.28s" }}
+            >
+              <TikTokIcon className="w-3.5 h-3.5 text-primary" />
+              <span className="text-[11px] tracking-[0.28em] uppercase font-medium text-foreground/90">
+                Siga no TikTok
+              </span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-primary/70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" strokeWidth={1.5} />
+            </a>
+
+            <div className="mx-auto mt-7 mb-2 w-20 hairline animate-fade-up" style={{ animationDelay: "0.34s" }} />
 
             <p
               className="mt-5 text-xs text-muted-foreground font-light italic animate-fade-up"
@@ -157,18 +171,37 @@ function Index() {
               })}
             </div>
 
-            {/* Única CTA — parcerias passam pela assessoria */}
+          </div>
+        </section>
+
+        {/* PARCERIAS & PUBLIS */}
+        <section className="pt-4 pb-6">
+          <div className="container mx-auto px-6 max-w-xl">
+            <div className="text-center mb-7 animate-fade-up" style={{ animationDelay: "1.2s" }}>
+              <span className="text-[10px] text-primary/80 tracking-[0.45em] uppercase font-medium">
+                Parcerias & Publis
+              </span>
+              <h2 className="font-display text-3xl md:text-[34px] mt-3 text-foreground leading-tight">
+                Trabalhe com a assessoria
+              </h2>
+              <div className="mx-auto mt-4 w-16 hairline" />
+              <p className="text-[12.5px] text-muted-foreground font-light leading-relaxed mt-5 max-w-sm mx-auto">
+                Para campanhas publicitárias, permutas e colaborações com o criador,
+                o contato é feito exclusivamente pela assessoria oficial.
+              </p>
+            </div>
+
             <a
               href={wa("Olá, gostaria de saber mais sobre os serviços que você oferece.")}
               target="_blank" rel="noopener noreferrer"
-              className="premium-card group mt-5 flex items-center gap-4 px-5 py-4 animate-fade-up"
-              style={{ animationDelay: "1.25s" }}
+              className="premium-card group flex items-center gap-4 px-5 py-4 animate-fade-up"
+              style={{ animationDelay: "1.3s" }}
             >
               <div className="icon-tile w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
                 <WhatsAppIcon className="w-[18px] h-[18px]" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[10px] text-primary/70 tracking-[0.3em] uppercase font-medium">Projetos & Parcerias</p>
+                <p className="text-[10px] text-primary/70 tracking-[0.3em] uppercase font-medium">Assessoria Oficial</p>
                 <h3 className="text-[15px] font-medium text-foreground mt-0.5">
                   Solicitar orçamento
                 </h3>
@@ -184,7 +217,7 @@ function Index() {
             <div className="flex items-center gap-4 justify-center mb-6">
               <div className="flex-1 hairline" />
               <span className="text-[10px] text-muted-foreground/60 tracking-[0.4em] uppercase font-light">
-                Assessoria
+                Redes Sociais
               </span>
               <div className="flex-1 hairline" />
             </div>
