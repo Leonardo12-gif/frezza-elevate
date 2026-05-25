@@ -25,7 +25,7 @@ const wa = (text: string) => `${WHATSAPP}?text=${encodeURIComponent(text)}`;
 
 const links = [
   { title: "Fale com minha assessoria", subtitle: "WhatsApp direto", url: WHATSAPP, icon: WhatsAppIcon },
-  { title: "Portfólio", subtitle: "Apresentações e cases", url: "https://www.canva.com/design/DAG4jW9haFo/rT5bnXd7Q-AQ7RS9XpG2AQ/view", icon: Briefcase },
+  { title: "Portfólio", subtitle: "Solicite pelo WhatsApp", url: wa("Olá, gostaria de solicitar o portfolio de Leonardo Frezza."), icon: Briefcase },
   { title: "Mídia Kit — 2026", subtitle: "Solicite pelo WhatsApp", url: wa("Olá! Gostaria de solicitar o Mídia Kit 2026."), icon: FileText },
 ];
 
