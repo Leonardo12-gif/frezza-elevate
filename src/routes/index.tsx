@@ -76,7 +76,20 @@ function Index() {
               Criador de Conteúdo · Gym · Lifestyle · Humor
             </p>
 
-            <div className="mx-auto mt-7 mb-2 w-20 hairline animate-fade-up" style={{ animationDelay: "0.3s" }} />
+            <a
+              href="https://www.tiktok.com/@l.frezza"
+              target="_blank" rel="noopener noreferrer"
+              className="group mt-5 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-primary/25 bg-primary/5 hover:bg-primary/10 hover:border-primary/45 transition-all animate-fade-up"
+              style={{ animationDelay: "0.28s" }}
+            >
+              <TikTokIcon className="w-3.5 h-3.5 text-primary" />
+              <span className="text-[11px] tracking-[0.28em] uppercase font-medium text-foreground/90">
+                Siga no TikTok
+              </span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-primary/70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" strokeWidth={1.5} />
+            </a>
+
+            <div className="mx-auto mt-7 mb-2 w-20 hairline animate-fade-up" style={{ animationDelay: "0.34s" }} />
 
             <p
               className="mt-5 text-xs text-muted-foreground font-light italic animate-fade-up"
