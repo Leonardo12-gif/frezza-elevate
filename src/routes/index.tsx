@@ -38,7 +38,7 @@ const especialidades = [
 const socials = [
   { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/l.frezza/" },
   { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/share/174B7QMWgz/" },
-  { name: "WhatsApp", icon: Phone, url: WHATSAPP },
+  { name: "WhatsApp", icon: WhatsAppIcon, url: WHATSAPP },
 ];
 
 function Index() {
