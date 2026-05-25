@@ -4,6 +4,7 @@ import {
   Film, Clapperboard, Target, Code2, ArrowUpRight, MessageCircle,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import TikTokIcon from "@/components/TikTokIcon";
 import avatar from "@/assets/avatar.png";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
