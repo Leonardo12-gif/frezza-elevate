@@ -171,18 +171,37 @@ function Index() {
               })}
             </div>
 
-            {/* Única CTA — parcerias passam pela assessoria */}
+          </div>
+        </section>
+
+        {/* PARCERIAS & PUBLIS */}
+        <section className="pt-4 pb-6">
+          <div className="container mx-auto px-6 max-w-xl">
+            <div className="text-center mb-7 animate-fade-up" style={{ animationDelay: "1.2s" }}>
+              <span className="text-[10px] text-primary/80 tracking-[0.45em] uppercase font-medium">
+                Parcerias & Publis
+              </span>
+              <h2 className="font-display text-3xl md:text-[34px] mt-3 text-foreground leading-tight">
+                Trabalhe com a assessoria
+              </h2>
+              <div className="mx-auto mt-4 w-16 hairline" />
+              <p className="text-[12.5px] text-muted-foreground font-light leading-relaxed mt-5 max-w-sm mx-auto">
+                Para campanhas publicitárias, permutas e colaborações com o criador,
+                o contato é feito exclusivamente pela assessoria oficial.
+              </p>
+            </div>
+
             <a
               href={wa("Olá, gostaria de saber mais sobre os serviços que você oferece.")}
               target="_blank" rel="noopener noreferrer"
-              className="premium-card group mt-5 flex items-center gap-4 px-5 py-4 animate-fade-up"
-              style={{ animationDelay: "1.25s" }}
+              className="premium-card group flex items-center gap-4 px-5 py-4 animate-fade-up"
+              style={{ animationDelay: "1.3s" }}
             >
               <div className="icon-tile w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
                 <WhatsAppIcon className="w-[18px] h-[18px]" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[10px] text-primary/70 tracking-[0.3em] uppercase font-medium">Projetos & Parcerias</p>
+                <p className="text-[10px] text-primary/70 tracking-[0.3em] uppercase font-medium">Assessoria Oficial</p>
                 <h3 className="text-[15px] font-medium text-foreground mt-0.5">
                   Solicitar orçamento
                 </h3>
@@ -198,7 +217,7 @@ function Index() {
             <div className="flex items-center gap-4 justify-center mb-6">
               <div className="flex-1 hairline" />
               <span className="text-[10px] text-muted-foreground/60 tracking-[0.4em] uppercase font-light">
-                Assessoria
+                Redes Sociais
               </span>
               <div className="flex-1 hairline" />
             </div>
