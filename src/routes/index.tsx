@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Phone, Briefcase, FileText, Instagram, Facebook,
+  Briefcase, FileText, Instagram, Facebook,
   Film, Clapperboard, Target, Code2, ArrowUpRight, MessageCircle,
 } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import avatar from "@/assets/avatar.png";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
