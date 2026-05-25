@@ -158,7 +158,7 @@ function Index() {
 
             {/* Única CTA — parcerias passam pela assessoria */}
             <a
-              href={wa("Olá! Tenho interesse em uma parceria com o Leonardo Frezza.")}
+              href={wa("Olá, gostaria de saber mais sobre os serviços que você oferece.")}
               target="_blank" rel="noopener noreferrer"
               className="premium-card group mt-5 flex items-center gap-4 px-5 py-4 animate-fade-up"
               style={{ animationDelay: "1.25s" }}
@@ -167,9 +167,9 @@ function Index() {
                 <MessageCircle className="w-[18px] h-[18px]" strokeWidth={1.5} />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[10px] text-primary/70 tracking-[0.3em] uppercase font-medium">Parcerias & Projetos</p>
+                <p className="text-[10px] text-primary/70 tracking-[0.3em] uppercase font-medium">Projetos & Parcerias</p>
                 <h3 className="text-[15px] font-medium text-foreground mt-0.5">
-                  Fale com a assessoria
+                  Solicitar orçamento
                 </h3>
               </div>
               <ArrowUpRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" strokeWidth={1.5} />
