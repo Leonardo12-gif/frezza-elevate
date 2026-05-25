@@ -1,4 +1,4 @@
-export default function WhatsAppIcon({ className = "" }: { className?: string }) {
+export default function WhatsAppIcon({ className = "", strokeWidth: _strokeWidth }: { className?: string; strokeWidth?: number }) {
   return (
     <svg
       className={className}
