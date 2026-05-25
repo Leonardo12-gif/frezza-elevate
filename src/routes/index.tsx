@@ -165,7 +165,7 @@ function Index() {
               style={{ animationDelay: "1.25s" }}
             >
               <div className="icon-tile w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
-                <MessageCircle className="w-[18px] h-[18px]" strokeWidth={1.5} />
+                <WhatsAppIcon className="w-[18px] h-[18px]" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-[10px] text-primary/70 tracking-[0.3em] uppercase font-medium">Projetos & Parcerias</p>
