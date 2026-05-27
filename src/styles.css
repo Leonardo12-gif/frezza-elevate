@@ -268,6 +268,26 @@
     height: 1px;
   }
 
+  .section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, oklch(0.55 0.18 25 / 0.28), transparent);
+  }
+  .section-divider span {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--color-accent-glow);
+    opacity: 0.7;
+  }
+
   /* Subtle serial / monogram numeral */
   .serial {
     font-family: var(--font-display);
