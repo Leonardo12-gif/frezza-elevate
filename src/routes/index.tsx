@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Briefcase, FileText, Instagram, Facebook,
-  Film, Clapperboard, Target, Code2, ArrowUpRight,
+  Film, Clapperboard, Target, Code2, ArrowUpRight, Handshake, Sparkles,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import TikTokIcon from "@/components/TikTokIcon";
@@ -12,9 +12,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Leonardo Frezza — Links Oficiais" },
-      { name: "description", content: "Videomaker, Storymaker, Gestor de Tráfego Pago e Desenvolvedor. Para parcerias, fale com a assessoria." },
+      { name: "description", content: "Frezza Marketing · Videomaker, Storymaker, Tráfego Pago e Desenvolvimento. Para parcerias e publis, fale com a assessoria oficial." },
       { property: "og:title", content: "Leonardo Frezza — Links Oficiais" },
-      { property: "og:description", content: "Videomaker · Storymaker · Tráfego Pago · Desenvolvimento." },
+      { property: "og:description", content: "Atuação profissional pela Frezza Marketing · Parcerias e publis pela assessoria oficial." },
     ],
   }),
   component: Index,
@@ -23,10 +23,22 @@ export const Route = createFileRoute("/")({
 const WHATSAPP = "https://wa.me/5515991273423";
 const wa = (text: string) => `${WHATSAPP}?text=${encodeURIComponent(text)}`;
 
-const links = [
-  { title: "Fale com minha assessoria", subtitle: "WhatsApp direto", url: WHATSAPP, icon: WhatsAppIcon },
-  { title: "Portfólio", subtitle: "Solicite pelo WhatsApp", url: wa("Olá, gostaria de solicitar o portfolio de Leonardo Frezza."), icon: Briefcase },
-  { title: "Mídia Kit — 2026", subtitle: "Solicite pelo WhatsApp", url: wa("Olá! Gostaria de solicitar o Mídia Kit 2026."), icon: FileText },
+// PROFISSIONAL — Frezza Marketing (empresa)
+const profissional = [
+  {
+    label: "Frezza Marketing",
+    title: "Contratar serviço",
+    subtitle: "Atendimento comercial da empresa",
+    url: wa("Olá! Gostaria de contratar um serviço com a Frezza Marketing."),
+    icon: WhatsAppIcon,
+  },
+  {
+    label: "Portfólio",
+    title: "Solicitar portfólio",
+    subtitle: "Receba pelo WhatsApp",
+    url: wa("Olá, gostaria de solicitar o portfolio de Leonardo Frezza."),
+    icon: Briefcase,
+  },
 ];
 
 const especialidades = [
@@ -34,6 +46,24 @@ const especialidades = [
   { title: "Storymaker", desc: "Narrativas curtas e conteúdo para redes.", icon: Clapperboard },
   { title: "Tráfego Pago", desc: "Gestão de campanhas em Meta Ads.", icon: Target },
   { title: "Desenvolvimento", desc: "Sistemas e sites sob medida.", icon: Code2 },
+];
+
+// PARCERIAS & PUBLIS — Assessoria oficial
+const parcerias = [
+  {
+    label: "Assessoria Oficial",
+    title: "Falar com a assessoria",
+    subtitle: "Parcerias, permutas e publis",
+    url: wa("Olá! Sou da equipe de [marca] e gostaria de conversar sobre uma parceria com o Leonardo."),
+    icon: Handshake,
+  },
+  {
+    label: "Mídia Kit — 2026",
+    title: "Solicitar mídia kit",
+    subtitle: "Métricas, audiência e formatos",
+    url: wa("Olá! Gostaria de solicitar o Mídia Kit 2026 do Leonardo Frezza."),
+    icon: FileText,
+  },
 ];
 
 const socials = [
@@ -105,109 +135,123 @@ function Index() {
           </div>
         </section>
 
-        {/* LINKS */}
-        <section className="pb-2">
-          <div className="container mx-auto px-6 max-w-xl space-y-3">
-            {links.map((l, i) => {
-              const Icon = l.icon;
-              return (
-                <a
-                  key={l.title}
-                  href={l.url}
-                  target="_blank" rel="noopener noreferrer"
-                  className="premium-card group relative flex items-center gap-4 px-5 py-4 animate-fade-up"
-                  style={{ animationDelay: `${0.55 + i * 0.08}s` }}
-                >
-                  <div className="icon-tile w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-[18px] h-[18px]" strokeWidth={1.5} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-[15px] font-medium text-foreground">{l.title}</h3>
-                    <p className="text-xs text-muted-foreground mt-0.5 font-light">{l.subtitle}</p>
-                  </div>
-                  <ArrowUpRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" strokeWidth={1.5} />
-                </a>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* ESPECIALIDADES — atuação profissional, sem CTA por item */}
-        <section className="pt-16 pb-6">
+        {/* ====================== PROFISSIONAL ====================== */}
+        <section className="pt-10 pb-6">
           <div className="container mx-auto px-6 max-w-xl">
-            <div className="text-center mb-8 animate-fade-up" style={{ animationDelay: "0.85s" }}>
-              <span className="text-[10px] text-primary/80 tracking-[0.45em] uppercase font-medium">
-                Atuação Profissional
-              </span>
-              <h2 className="font-display text-3xl md:text-[34px] mt-3 text-foreground leading-tight">
-                Especialidades
-              </h2>
-              <div className="mx-auto mt-4 w-16 hairline" />
-            </div>
+            <SectionHeader
+              eyebrow="01 — Profissional"
+              title="Frezza Marketing"
+              caption="Atuação direta da empresa. Serviços contratados via comercial."
+              delay={0.6}
+            />
 
-            <div className="grid grid-cols-2 gap-3">
-              {especialidades.map((e, i) => {
-                const Icon = e.icon;
+            <div className="space-y-3 mt-8">
+              {profissional.map((l, i) => {
+                const Icon = l.icon;
                 return (
-                  <div
-                    key={e.title}
-                    className="premium-card relative p-5 flex flex-col gap-3 animate-fade-up"
-                    style={{ animationDelay: `${0.95 + i * 0.06}s` }}
+                  <a
+                    key={l.title}
+                    href={l.url}
+                    target="_blank" rel="noopener noreferrer"
+                    className="premium-card group relative flex items-center gap-4 px-5 py-4 animate-fade-up"
+                    style={{ animationDelay: `${0.7 + i * 0.08}s` }}
                   >
-                    <span className="serial absolute top-3 right-4 text-xs tracking-wider">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div className="icon-tile w-10 h-10 rounded-lg flex items-center justify-center">
-                      <Icon className="w-[17px] h-[17px]" strokeWidth={1.5} />
+                    <div className="icon-tile w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-[18px] h-[18px]" strokeWidth={1.5} />
                     </div>
-                    <div className="relative">
-                      <h3 className="font-display text-lg leading-tight text-foreground">{e.title}</h3>
-                      <p className="text-[11.5px] text-muted-foreground font-light leading-relaxed mt-1">
-                        {e.desc}
-                      </p>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[9.5px] text-primary/70 tracking-[0.3em] uppercase font-medium">{l.label}</p>
+                      <h3 className="text-[15px] font-medium text-foreground mt-0.5">{l.title}</h3>
+                      <p className="text-[11.5px] text-muted-foreground mt-0.5 font-light">{l.subtitle}</p>
                     </div>
-                  </div>
+                    <ArrowUpRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" strokeWidth={1.5} />
+                  </a>
                 );
               })}
             </div>
 
+            {/* Especialidades */}
+            <div className="mt-10">
+              <div className="flex items-center gap-3 mb-5 animate-fade-up" style={{ animationDelay: "0.9s" }}>
+                <Sparkles className="w-3.5 h-3.5 text-primary/70" strokeWidth={1.5} />
+                <span className="text-[10px] text-muted-foreground/70 tracking-[0.4em] uppercase font-light">
+                  Especialidades
+                </span>
+                <div className="flex-1 hairline" />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                {especialidades.map((e, i) => {
+                  const Icon = e.icon;
+                  return (
+                    <div
+                      key={e.title}
+                      className="premium-card relative p-5 flex flex-col gap-3 animate-fade-up"
+                      style={{ animationDelay: `${0.95 + i * 0.06}s` }}
+                    >
+                      <span className="serial absolute top-3 right-4 text-xs tracking-wider">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="icon-tile w-10 h-10 rounded-lg flex items-center justify-center">
+                        <Icon className="w-[17px] h-[17px]" strokeWidth={1.5} />
+                      </div>
+                      <div className="relative">
+                        <h3 className="font-display text-lg leading-tight text-foreground">{e.title}</h3>
+                        <p className="text-[11.5px] text-muted-foreground font-light leading-relaxed mt-1">
+                          {e.desc}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* PARCERIAS & PUBLIS */}
-        <section className="pt-4 pb-6">
-          <div className="container mx-auto px-6 max-w-xl">
-            <div className="text-center mb-7 animate-fade-up" style={{ animationDelay: "1.2s" }}>
-              <span className="text-[10px] text-primary/80 tracking-[0.45em] uppercase font-medium">
-                Parcerias & Publis
-              </span>
-              <h2 className="font-display text-3xl md:text-[34px] mt-3 text-foreground leading-tight">
-                Trabalhe com a assessoria
-              </h2>
-              <div className="mx-auto mt-4 w-16 hairline" />
-              <p className="text-[12.5px] text-muted-foreground font-light leading-relaxed mt-5 max-w-sm mx-auto">
-                Para campanhas publicitárias, permutas e colaborações com o criador,
-                o contato é feito exclusivamente pela assessoria oficial.
-              </p>
-            </div>
+        {/* Divisor entre seções */}
+        <div className="container mx-auto px-6 max-w-xl my-6">
+          <div className="section-divider animate-fade-up" style={{ animationDelay: "1.15s" }}>
+            <span className="text-[10px] text-muted-foreground/60 tracking-[0.5em] uppercase font-light">
+              &
+            </span>
+          </div>
+        </div>
 
-            <a
-              href={wa("Olá, gostaria de saber mais sobre os serviços que você oferece.")}
-              target="_blank" rel="noopener noreferrer"
-              className="premium-card group flex items-center gap-4 px-5 py-4 animate-fade-up"
-              style={{ animationDelay: "1.3s" }}
-            >
-              <div className="icon-tile w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
-                <WhatsAppIcon className="w-[18px] h-[18px]" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-[10px] text-primary/70 tracking-[0.3em] uppercase font-medium">Assessoria Oficial</p>
-                <h3 className="text-[15px] font-medium text-foreground mt-0.5">
-                  Solicitar orçamento
-                </h3>
-              </div>
-              <ArrowUpRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" strokeWidth={1.5} />
-            </a>
+        {/* ====================== PARCERIAS & PUBLIS ====================== */}
+        <section className="pt-4 pb-8">
+          <div className="container mx-auto px-6 max-w-xl">
+            <SectionHeader
+              eyebrow="02 — Parcerias & Publis"
+              title="Assessoria oficial"
+              caption="Para campanhas publicitárias, permutas e colaborações com o criador, o atendimento é feito exclusivamente pela assessoria."
+              delay={1.2}
+            />
+
+            <div className="space-y-3 mt-8">
+              {parcerias.map((l, i) => {
+                const Icon = l.icon;
+                return (
+                  <a
+                    key={l.title}
+                    href={l.url}
+                    target="_blank" rel="noopener noreferrer"
+                    className="premium-card group relative flex items-center gap-4 px-5 py-4 animate-fade-up"
+                    style={{ animationDelay: `${1.3 + i * 0.08}s` }}
+                  >
+                    <div className="icon-tile w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-[18px] h-[18px]" strokeWidth={1.5} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[9.5px] text-primary/70 tracking-[0.3em] uppercase font-medium">{l.label}</p>
+                      <h3 className="text-[15px] font-medium text-foreground mt-0.5">{l.title}</h3>
+                      <p className="text-[11.5px] text-muted-foreground mt-0.5 font-light">{l.subtitle}</p>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" strokeWidth={1.5} />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </section>
 
@@ -257,6 +301,25 @@ function Index() {
           </p>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function SectionHeader({
+  eyebrow, title, caption, delay,
+}: { eyebrow: string; title: string; caption: string; delay: number }) {
+  return (
+    <div className="text-center animate-fade-up" style={{ animationDelay: `${delay}s` }}>
+      <span className="text-[10px] text-primary/80 tracking-[0.45em] uppercase font-medium">
+        {eyebrow}
+      </span>
+      <h2 className="font-display text-3xl md:text-[34px] mt-3 text-foreground leading-tight">
+        {title}
+      </h2>
+      <div className="mx-auto mt-4 w-16 hairline" />
+      <p className="text-[12.5px] text-muted-foreground font-light leading-relaxed mt-5 max-w-sm mx-auto">
+        {caption}
+      </p>
     </div>
   );
 }
